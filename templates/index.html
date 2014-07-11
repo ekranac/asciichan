@@ -1,9 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
-</html>
+{% extends "base.html" %}
+        {% block content %}
+    <form method="post">
+        <input type="text" name="title" placeholder="Title" style="height:30px; width:501px; font-size:25px; " value="{{ title }}">
+        <br>
+        <br>
+        <textarea name="art" placeholder="Ascii Art" style="height:300px; width:500px;">{{ art }}</textarea>
+        <input type="submit">
+        <p style="color:red;">{{ error }}
+    </form>
+         <hr>
+        {% for art in arts %}
+        <div class="art">
+                <h4>{{art.title}} ({{art.created.strftime("%b %d, %y")}})</h4>
+                <pre class="art-body">{{art.art}}</pre>
+         </div>
+        {% endfor %}
+        {% endblock %}
