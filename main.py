@@ -2,7 +2,6 @@ import webapp2
 import os
 import jinja2
 import time
-import calendar
 from google.appengine.ext import db
 
 
@@ -52,5 +51,5 @@ class MainPage(BaseHandler):
             self.render_front(title, art, error)
 
 app = webapp2.WSGIApplication([
-    ('/', MainPage),
+                                  webapp2.Route('/', MainPage)
 ], debug=True)
